@@ -1,0 +1,34 @@
+#!/bin/sh
+### BEGIN INIT INFO
+# Provides:          mymodule-loader
+# Required-Start:    $local_fs kmod
+# Required-Stop:     $local_fs
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: Load custom kernel module at boot
+### END INIT INFO
+
+case "$1" in
+    start)
+        echo "Loading kernel modules ..."
+        /usr/bin/module_load faulty
+        modprobe hello
+        /usr/bin/scull_load
+        ;;
+    stop)
+        echo "Unloading kernel modules ..."
+        /usr/bin/module_unload  faulty
+        rmmod hello
+        /usr/bin/scull_unload
+        ;;
+    restart|force-reload)
+        $0 stop
+        $0 start
+        ;;
+    *)
+        echo "Usage: $0 {start|stop|restart}"
+        exit 1
+        ;;
+esac
+
+exit 0

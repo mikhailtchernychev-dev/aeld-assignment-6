@@ -1,0 +1,37 @@
+From a372aedbf1d2785e3e6c179ce0d3cdb01f770b01 Mon Sep 17 00:00:00 2001
+From: Mikhail Tchernychev <mikhail_tchernychev@yahoo.com>
+Date: Thu, 8 Oct 2026 11:43:18 -0700
+Subject: [PATCH] preparing for yocto build
+
+---
+ Makefile              | 5 +----
+ misc-modules/Makefile | 2 ++
+ 2 files changed, 3 insertions(+), 4 deletions(-)
+
+diff --git a/Makefile b/Makefile
+index 7b08c49..ef5d766 100644
+--- a/Makefile
++++ b/Makefile
+@@ -1,8 +1,5 @@
+ 
+-SUBDIRS =  misc-progs misc-modules \
+-           skull scull scullc scullp lddbus sculld scullv shortprint simple tty \
+-	   pci usb\
+-	   sbull snull short
++SUBDIRS =  scull
+ 
+ all: subdirs
+ 
+diff --git a/misc-modules/Makefile b/misc-modules/Makefile
+index f4e6e34..6b3c87e 100644
+--- a/misc-modules/Makefile
++++ b/misc-modules/Makefile
+@@ -16,6 +16,8 @@ ifeq ($(KERNELRELEASE),)
+     # The current directory is passed to sub-makes as argument
+     PWD := $(shell pwd)
+ 
++    $(info KERNELDIR= $(KERNELDIR))
++
+ modules:
+ 	$(MAKE) -C $(KERNELDIR) M=$(PWD) modules
+ 
