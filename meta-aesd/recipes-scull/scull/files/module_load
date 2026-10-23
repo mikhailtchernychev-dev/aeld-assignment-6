@@ -25,7 +25,7 @@ shift 1
 
 echo "Load our module, exit on failure"
 if [ "$module" = "faulty" ] ; then
-    insmod /lib/modules/$(uname -r)/extra/faulty.ko || exit 1
+    insmod /lib/modules/$(uname -r)/updates/faulty.ko || exit 1
 else
     modprobe $module $* || exit 1
 fi

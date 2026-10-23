@@ -48,7 +48,7 @@ do_install:append() {
     install -m 0755 ${WORKDIR}/module_load ${D}${bindir}/module_load
     install -m 0755 ${WORKDIR}/scull_load ${D}${bindir}/scull_load
     install -m 0755 ${WORKDIR}/scull_unload ${D}${bindir}/scull_unload  
-
+ 
     # Create the /etc/init.d directory inside the image destination
     install -d ${D}${INIT_D_DIR}
     
@@ -63,4 +63,5 @@ FILES:${PN} += "${bindir}/module_load \
                 ${bindir}/scull_load  \
                 ${bindir}/scull_unload \
                 ${INIT_D_DIR}/lddmodules \
-"
+                "
+

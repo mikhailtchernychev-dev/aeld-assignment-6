@@ -26,3 +26,4 @@ MODULES_MODULE_SYMVERS_LOCATION:append = "misc-modules"
 
 EXTRA_OEMAKE:append:task-install = " -C ${STAGING_KERNEL_DIR} M=${S}/misc-modules"
 EXTRA_OEMAKE += "KERNELDIR=${STAGING_KERNEL_DIR}"
+
